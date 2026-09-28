@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Production Build Output
+dist/
+build/
+
+# Environment Variables & Local Configs
+.env
+.env.*
+!.env.example
+*.local
+
+# IDE & Editor Files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+
+# OS System Files
+.DS_Store
+Thumbs.db
