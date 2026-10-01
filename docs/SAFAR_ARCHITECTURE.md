@@ -3,7 +3,7 @@
 > **Document Status**: Architectural Plan & Design Specification  
 > **Target Version**: SAFAR Mobile Prototype v1.0  
 > **Date**: September 2026  
-> **Specification Reference**: [SAFAR_SPEC.md](file:///e:/Safar/SAFAR_SPEC.md)
+> **Specification Reference**: [SAFAR_SPEC.md](file:///e:/Safar/docs/SAFAR_SPEC.md) | [SAFAR_BACKEND_ARCHITECTURE.md](file:///e:/Safar/docs/SAFAR_BACKEND_ARCHITECTURE.md)
 
 ---
 

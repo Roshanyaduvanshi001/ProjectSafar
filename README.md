@@ -2,76 +2,122 @@
 
 ## Overview
 
-SAFAR is a smart mobile travel companion prototype designed to help users plan, manage, and track their complete journey from one place. Designed specifically for Indian travel scenarios, SAFAR guides travelers through trip planning, customization, package selection, payment simulation, live journey tracking, AI assistance, emergency SOS, budget tracking, and post-trip review.
+**SAFAR** (*"Set My Safar"*) is a smart mobile travel companion designed to guide travelers through complete journeys across Indian travel scenarios. SAFAR combines trip discovery, purpose-driven customization, multi-step booking, secure payment simulation, live stage-by-stage journey tracking, stay and schedule management, an encrypted document vault, an interactive emergency SOS trigger, AI travel assistance, and categorized expense tracking across 24 cohesive screens.
+
+---
+
+## Project Structure
+
+The project is structured as a full-stack monorepo separating the frontend, planned backend, and architectural documentation:
+
+```
+ProjectSafar/
+│
+├── frontend/                     # Client application (React 18 + Vite 6 + Tailwind CSS)
+│   ├── src/                      # Source code (components, context, pages, types, etc.)
+│   ├── public/                   # Static assets & icons
+│   ├── package.json              # Frontend package manifest & scripts
+│   ├── vite.config.ts            # Vite bundler configuration
+│   ├── tsconfig.json             # TypeScript compiler configuration
+│   ├── tailwind.config.js        # Design system & color tokens
+│   └── ...
+│
+├── backend/                      # Server application (Planned for Phase 11)
+│   └── README.md                 # Backend roadmap & architecture overview
+│
+├── docs/                         # Project specifications & architecture blueprints
+│   ├── SAFAR_SPEC.md             # Functional product specification (24 screens)
+│   ├── SAFAR_ARCHITECTURE.md     # Frontend architecture & UI design system
+│   └── SAFAR_BACKEND_ARCHITECTURE.md # Backend architecture & monorepo migration plan
+│
+├── .gitignore                    # Monorepo gitignore rules
+├── package.json                  # Root npm scripts
+└── README.md                     # Project overview & running instructions
+```
+
+---
 
 ## Current Status
 
-Frontend prototype completed through Phase 8.
+- **Frontend**: Prototype completed through Phase 8 (all 24 screens fully interactive and integrated with React Context state).
+- **Monorepo Migration**: Phase 10.5 completed (frontend moved to `frontend/`, documentation consolidated in `docs/`).
+- **Backend**: Phase 10 architecture and data modeling finalized in [docs/SAFAR_BACKEND_ARCHITECTURE.md](file:///e:/Safar/docs/SAFAR_BACKEND_ARCHITECTURE.md). Implementation will begin in Phase 11.
 
-## Features
-
-The application includes the following fully integrated interactive features:
-
-- **Set My Safar Workflow**:
-  - **Destination Selection**: Pick origin, destination, date, and preferred time.
-  - **Purpose Selection**: Customize options based on travel goals (Interview, Business, Vacation, Family, Medical).
-  - **Journey Details**: Transport mode, train/flight booking status, and company/meeting location.
-  - **Traveller Details**: Personal identification, Aadhaar upload simulation, and emergency contact details.
-  - **Personalization**: Budget preferences, stay type, local transit, and special requirements.
-  - **Package Selection**: Choose from Basic, Standard, and Premium Safar companion packages.
-  - **Booking Review**: Itemized price breakdown with promo code (`SAFAR100`) support.
-  - **Prototype Payment Flow**: UPI, Card, Net Banking, and Wallet payment options.
-  - **Payment Success**: Verified receipt generation with PNR and booking reference numbers.
-  - **Agent Assignment**: Meet your assigned 24x7 Safar travel companion (Arjun Sharma).
-
-- **My Safar Journey Management Hub**:
-  - **Dashboard Summary**: Real-time journey overview (Kolkata → Delhi, 20 May 2026, 10:30 AM, PNR: 2458901234, Status: LIVE) and 6-stage journey timeline.
-  - **Live Journey**: Real-time progress timeline tracking and stage status updates.
-  - **Stay Details**: Hotel XYZ reservation info, check-in/out timings, inclusions, and desk support hotline.
-  - **Schedule**: Hour-by-hour interactive day itinerary with activity completion toggles.
-  - **Documents Vault**: Encrypted storage simulation for train tickets, hotel vouchers, and identity proofs.
-  - **Emergency SOS**: One-touch hold SOS trigger with simulated emergency alerts to agent and family contacts.
-  - **Safar AI**: Prototype AI travel assistant with preset queries and smart trip recommendations.
-  - **Expenses Tracker**: Categorized budget manager (Food, Transport, Hotel, Shopping) with remaining balance indicator.
-  - **Explore Nearby**: Filterable map guide for nearby food, cafes, ATMs, hospitals, and attractions in Connaught Place, Delhi.
-
-- **Account & System**:
-  - **Profile**: Personal information, travel stats, and account shortcuts.
-  - **Alerts**: Real-time travel notifications and safety updates.
+---
 
 ## Technology Stack
 
-Built with modern web technologies:
+### Frontend (Current)
 
 - **Framework**: React 18
-- **Language**: TypeScript
+- **Language**: TypeScript 5.7
 - **Build Tool**: Vite 6
-- **Styling**: Tailwind CSS & Vanilla CSS
-- **Routing**: React Router v6
+- **Styling**: Tailwind CSS & Custom Design Tokens
+- **Routing**: React Router v6 (24 screens + layouts)
 - **Icons**: Lucide React
 - **State Management**: React Context API (`BookingContext`, `JourneyContext`, `AuthContext`, `ExpenseContext`)
 
-## Run Locally
+### Backend (Planned — Phase 11)
 
-Clone the repository and install dependencies:
+- **Runtime**: Node.js (ES Modules)
+- **Language**: TypeScript
+- **Framework**: Express.js
+- **Database**: MongoDB via Mongoose
+- **Authentication**: JWT access & refresh token rotation, bcrypt password hashing
+- **Security**: Helmet, CORS, rate limiting, and encrypted storage keys
+
+---
+
+## How to Run the Frontend
+
+The frontend is completely self-contained within the `frontend/` directory.
+
+### Option 1: Direct from `frontend/` (Recommended)
 
 ```bash
+cd frontend
 npm install
 npm run dev
 ```
 
-The application will be available at `http://localhost:5173`.
+The application will be accessible at `http://localhost:3000` (or `http://localhost:5173`).
 
-## Production Build
-
-To build the production bundle and verify type checking:
+### Option 2: From the Repository Root
 
 ```bash
+npm run dev
+```
+
+### Production Build & Type Checking
+
+To verify TypeScript and generate the production bundle:
+
+```bash
+cd frontend
 npm run build
 ```
 
-To preview the built production app:
+To preview the built production bundle:
 
 ```bash
+cd frontend
 npm run preview
 ```
+
+---
+
+## Future Backend Roadmap
+
+1. **Phase 11**: Backend project initialization (Node.js, Express, TypeScript scaffold, MongoDB connection, core Mongoose schemas).
+2. **Phase 12**: Authentication (JWT & session tokens) & "Set My Safar" booking API endpoints.
+3. **Phase 13**: Live Journey state machine, stay details, schedule, and encrypted document vault APIs.
+4. **Phase 14**: Safar AI proxy (Google Gemini) and emergency SOS multi-channel dispatch service.
+5. **Phase 15**: Full-Stack integration, replacing frontend mock adapters with live REST APIs.
+
+---
+
+## Documentation Index
+
+- [SAFAR_SPEC.md](file:///e:/Safar/docs/SAFAR_SPEC.md) — Complete 24-Screen Functional Specification
+- [SAFAR_ARCHITECTURE.md](file:///e:/Safar/docs/SAFAR_ARCHITECTURE.md) — Frontend Architecture & Component Guidelines
+- [SAFAR_BACKEND_ARCHITECTURE.md](file:///e:/Safar/docs/SAFAR_BACKEND_ARCHITECTURE.md) — Backend Architecture, Schemas, & API Contracts
